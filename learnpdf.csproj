@@ -117,18 +117,36 @@
     <Compile Include="frmAboutMe.Designer.cs">
       <DependentUpon>frmAboutMe.cs</DependentUpon>
     </Compile>
+    <Compile Include="MergePdfControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MergePdfControl.Designer.cs">
+      <DependentUpon>MergePdfControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitPdfControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SplitPdfControl.Designer.cs">
+      <DependentUpon>SplitPdfControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAboutMe.resx">
       <DependentUpon>frmAboutMe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MergePdfControl.resx">
+      <DependentUpon>MergePdfControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplitPdfControl.resx">
+      <DependentUpon>SplitPdfControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -190,6 +208,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PDF_24287.ico" />
+    <None Include="Resources\Merge %281%29.png" />
+    <None Include="Resources\Merge.png" />
+    <None Include="Resources\MainForm1.png" />
+    <None Include="Resources\MainForm.png" />
+    <None Include="Resources\pdfBackground11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
