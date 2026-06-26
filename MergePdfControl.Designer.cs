@@ -42,8 +42,8 @@
             this.btnMerge = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblTotalFirstPage = new System.Windows.Forms.Label();
-            this.lblTotalSecondPage = new System.Windows.Forms.Label();
+            this.lblTotalFiles = new System.Windows.Forms.Label();
+            this.lblTotalPagesInListbox = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalPages = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -87,9 +87,9 @@
             this.lblFileSelectd.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFileSelectd.Location = new System.Drawing.Point(123, 73);
             this.lblFileSelectd.Name = "lblFileSelectd";
-            this.lblFileSelectd.Size = new System.Drawing.Size(79, 23);
+            this.lblFileSelectd.Size = new System.Drawing.Size(135, 23);
             this.lblFileSelectd.TabIndex = 16;
-            this.lblFileSelectd.Text = "First PDF";
+            this.lblFileSelectd.Text = "No File Selected";
             // 
             // label1
             // 
@@ -207,31 +207,31 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(114, 728);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 23);
+            this.label4.Size = new System.Drawing.Size(89, 23);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Pages in First PDF";
+            this.label4.Text = "Total Files";
             // 
-            // lblTotalFirstPage
+            // lblTotalFiles
             // 
-            this.lblTotalFirstPage.AutoSize = true;
-            this.lblTotalFirstPage.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalFirstPage.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalFirstPage.Location = new System.Drawing.Point(116, 703);
-            this.lblTotalFirstPage.Name = "lblTotalFirstPage";
-            this.lblTotalFirstPage.Size = new System.Drawing.Size(24, 23);
-            this.lblTotalFirstPage.TabIndex = 30;
-            this.lblTotalFirstPage.Text = "--";
+            this.lblTotalFiles.AutoSize = true;
+            this.lblTotalFiles.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFiles.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFiles.Location = new System.Drawing.Point(116, 703);
+            this.lblTotalFiles.Name = "lblTotalFiles";
+            this.lblTotalFiles.Size = new System.Drawing.Size(24, 23);
+            this.lblTotalFiles.TabIndex = 30;
+            this.lblTotalFiles.Text = "--";
             // 
-            // lblTotalSecondPage
+            // lblTotalPagesInListbox
             // 
-            this.lblTotalSecondPage.AutoSize = true;
-            this.lblTotalSecondPage.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalSecondPage.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSecondPage.Location = new System.Drawing.Point(430, 703);
-            this.lblTotalSecondPage.Name = "lblTotalSecondPage";
-            this.lblTotalSecondPage.Size = new System.Drawing.Size(24, 23);
-            this.lblTotalSecondPage.TabIndex = 32;
-            this.lblTotalSecondPage.Text = "--";
+            this.lblTotalPagesInListbox.AutoSize = true;
+            this.lblTotalPagesInListbox.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalPagesInListbox.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPagesInListbox.Location = new System.Drawing.Point(430, 703);
+            this.lblTotalPagesInListbox.Name = "lblTotalPagesInListbox";
+            this.lblTotalPagesInListbox.Size = new System.Drawing.Size(24, 23);
+            this.lblTotalPagesInListbox.TabIndex = 32;
+            this.lblTotalPagesInListbox.Text = "--";
             // 
             // label6
             // 
@@ -240,9 +240,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(428, 728);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(172, 23);
+            this.label6.Size = new System.Drawing.Size(90, 23);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Pages in Second PDF";
+            this.label6.Text = "Total Pges";
             // 
             // lblTotalPages
             // 
@@ -307,9 +307,9 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblTotalPages);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblTotalSecondPage);
+            this.Controls.Add(this.lblTotalPagesInListbox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblTotalFirstPage);
+            this.Controls.Add(this.lblTotalFiles);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnMerge);
@@ -347,8 +347,8 @@
         private System.Windows.Forms.Button btnMerge;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblTotalFirstPage;
-        private System.Windows.Forms.Label lblTotalSecondPage;
+        private System.Windows.Forms.Label lblTotalFiles;
+        private System.Windows.Forms.Label lblTotalPagesInListbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotalPages;
         private System.Windows.Forms.Label label9;

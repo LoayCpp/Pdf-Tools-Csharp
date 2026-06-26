@@ -18,14 +18,15 @@ namespace learnpdf
     {
        
       
-        int totalPage;
-  
+        int totalPageAfterMerge;
+        int totalPages;
         bool firstPageOpen;
-        bool secondPageOpen;
+      
         bool mergePageOpen;
         string pathOfFolder;
         string outputFileName;
         string outputFilePath;
+      
         List<string> lsPath;
         public MergePdfControl()
         {
@@ -76,12 +77,28 @@ namespace learnpdf
         }
         private void btnFirstFile_Click(object sender, EventArgs e)
         {
-            firstPageOpen = OpenFile(lblTotalFirstPage,lblNameFirsFile);
+            firstPageOpen = OpenFile(lblTotalFiles,lblNameFirsFile);
+
+            TotalFilesAndPages();
             EnableButtonMerge(firstPageOpen, mergePageOpen);
         }
 
       
+        void SelctedItemInListbox()
+        {
 
+            if (listBox1.Items.Count > 0)
+            {
+
+                lblFileSelectd.Text = "File Selected";
+            }
+            else
+            {
+                lblFileSelectd.Text = "No File Selected";
+
+            }
+
+        }
         private void btnOpenFolder_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
@@ -135,6 +152,11 @@ namespace learnpdf
             outputFilePath = Path.Combine(pathOfFolder, outputFileName);
         }
 
+        void TotalPagesWhenMerge(PdfDocument pages)
+        {
+            totalPageAfterMerge = pages.PageCount;
+            lblTotalPages.Text = totalPageAfterMerge.ToString();
+        }
         void SavePageToPath(PdfDocument document)
         {
 
@@ -150,17 +172,12 @@ namespace learnpdf
                 foreach (PdfPage page in source.Pages)
                 {
                     output.AddPage(page);
-
+                progressBar1.Value++;
                     Application.DoEvents();
                 }
 
 
             }
-        void TotalPgseWhenMerge(PdfDocument first, PdfDocument second)
-        {
-            totalPage = first.PageCount + second.PageCount;
-            lblTotalPages.Text = totalPage.ToString();
-        }
         bool CheckIsNameFileExists()
         {
             
@@ -189,22 +206,50 @@ namespace learnpdf
         }
 
 
+        void TotalFilesAndPages()
+        {
+            SelctedItemInListbox();
+             totalPages =0;
+           int totalFiles = lsPath.Count();
+            foreach (string path in lsPath)
+            {
 
+                using (PdfDocument firstPdf = PdfReader.Open(path, PdfDocumentOpenMode.Import))
+                {
+
+
+                    totalPages += firstPdf.PageCount;
+
+                }
+
+                    
+
+
+            }
+            lblTotalPagesInListbox.Text=totalPages.ToString();
+            lblTotalFiles.Text = totalFiles.ToString();
+
+        }
         void MergePdf()
         {
             
-            using (PdfDocument pdfDocument = new PdfDocument()) { 
-
-             foreach(string path in lsPath)
+            using (PdfDocument pdfDocument = new PdfDocument()) {
+              
+                progressBar1.Minimum = 0;
+                progressBar1.Value = 0;
+                progressBar1.Maximum = totalPages;
+             foreach (string path in lsPath)
                 {
 
                     using (PdfDocument firstPdf = PdfReader.Open(path, PdfDocumentOpenMode.Import))
+                    {
 
-                AddPages(firstPdf, pdfDocument);
-             
+                        AddPages(firstPdf, pdfDocument);
 
+                    }
             }
 
+                TotalPagesWhenMerge(pdfDocument);
                 SavePageToPath(pdfDocument);
                 MessageBox.Show("PDF files merged successfully.", "SuccessFully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -229,10 +274,10 @@ namespace learnpdf
 
             lblFileSelectd.Text = "No file selected";
          
-            lblTotalFirstPage.Text = lblTotalPages.Text = lblTotalSecondPage.Text = "--";
+            lblTotalFiles.Text = lblTotalPages.Text = lblTotalPagesInListbox.Text = "--";
             txtOutFile.Clear();
             txtOutFolder.Clear();
-
+            listBox1.Items.Clear();
             btnMerge.Enabled = false;
 
           
@@ -240,7 +285,7 @@ namespace learnpdf
             outputFileName = string.Empty;
             outputFilePath = string.Empty;
             firstPageOpen = false;
-            secondPageOpen = false;
+          
             mergePageOpen = false;
         
 
