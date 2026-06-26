@@ -21,6 +21,7 @@ namespace learnpdf
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                   ControlStyles.UserPaint |
                   ControlStyles.AllPaintingInWmPaint, true);

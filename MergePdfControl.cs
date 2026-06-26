@@ -27,12 +27,81 @@ namespace learnpdf
         string outputFileName;
         string outputFilePath;
       
-        List<string> lsPath;
+        List<string> lsPath= new List<string>();
         public MergePdfControl()
         {
             InitializeComponent();
          
             btnReset.Image = new Bitmap(Properties.Resources.icon_icons__1_, new Size(30, 30));
+            btnClearLsit.Image = new Bitmap(Properties.Resources.icon_icons__5_, new Size(30, 30));
+            btnFirstFile.Image = new Bitmap(Properties.Resources.icon_icons__2_, new Size(30, 30));
+           btnOpenFolder.Image= new Bitmap(Properties.Resources.icon_icons__2_, new Size(30, 30));
+            btnMerge.Image = new Bitmap(Properties.Resources.icon_icons__7_, new Size(30, 30));
+
+        }
+        void MoveFileDown()
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+
+                return;
+
+            }
+            int index = listBox1.SelectedIndex;
+            string temp;
+            string tempListPath;
+            if (listBox1.SelectedIndex == listBox1.Items.Count - 1)
+            {
+                return;
+            }
+            if (listBox1.Items.Count > 1)
+            {
+                if (index == listBox1.Items.Count - 1)
+                {
+                    return;
+                }
+
+
+                temp = listBox1.Items[index].ToString();
+                listBox1.Items[index] = listBox1.Items[index + 1];
+                listBox1.Items[index + 1] = temp;
+                tempListPath = lsPath[index];
+                lsPath[index] = lsPath[index + 1];
+                lsPath[index + 1] = tempListPath;
+
+                listBox1.SelectedIndex = index + 1;
+            }
+        }
+        void MoveFileUp()
+        {
+            int index = listBox1.SelectedIndex;
+            string temp;
+            string tempListPath;
+            if (listBox1.SelectedIndex == -1)
+            {
+                return;
+            }
+            if (listBox1.Items.Count > 1)
+            {
+                if (index == 0)
+                {
+                    return;
+                }
+
+
+                temp = listBox1.Items[index].ToString();
+                listBox1.Items[index] = listBox1.Items[index - 1];
+                listBox1.Items[index - 1] = temp;
+                tempListPath = lsPath[index];
+                lsPath[index] = lsPath[index - 1];
+                lsPath[index - 1] = tempListPath;
+
+                listBox1.SelectedIndex = index - 1;
+            }
+
+
+
+
         }
         void AddFilesToListbox(List<string> path)
         {
@@ -75,15 +144,80 @@ namespace learnpdf
             }
 
         }
-        private void btnFirstFile_Click(object sender, EventArgs e)
+        void ClearList()
         {
-            firstPageOpen = OpenFile(lblTotalFiles,lblNameFirsFile);
+            lblTotalFiles.Text = lblTotalPages.Text = lblTotalPagesInListbox.Text = "--";
+            lblFileSelectd.Text = "No File Selected";
+            lsPath.Clear();
+            listBox1.Items.Clear();
+            btnMerge.Enabled = false;
 
-            TotalFilesAndPages();
-            EnableButtonMerge(firstPageOpen, mergePageOpen);
+
+
         }
+        void MergePath()
+        {
 
-      
+
+            outputFileName = txtOutFile.Text + ".pdf";
+            outputFilePath = Path.Combine(pathOfFolder, outputFileName);
+        }
+        void TotalPagesWhenMerge(PdfDocument pages)
+        {
+            totalPageAfterMerge = pages.PageCount;
+            lblTotalPages.Text = totalPageAfterMerge.ToString();
+        }
+        void SavePageToPath(PdfDocument document)
+        {
+
+           
+
+               
+                document.Save(outputFilePath);
+                document.Close();
+          
+        }
+        bool IsFilePathExist()
+        {
+
+            if (File.Exists(outputFilePath))
+            {
+
+                DialogResult result = MessageBox.Show(
+      "A file with the same name already exists.\n\nDo you want to replace it?",
+      "Confirm File Replace",
+      MessageBoxButtons.YesNo,
+      MessageBoxIcon.Warning,
+      MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.Yes)
+                {
+                    return true;
+                }
+                else
+                {
+
+                    return false;
+                }
+              
+
+            }
+            return true;
+
+            
+
+        }
+            void AddPages(PdfDocument source, PdfDocument output)
+            {
+                foreach (PdfPage page in source.Pages)
+                {
+                    output.AddPage(page);
+                progressBar1.Value++;
+                    Application.DoEvents();
+                }
+
+
+            }
         void SelctedItemInListbox()
         {
 
@@ -97,25 +231,6 @@ namespace learnpdf
                 lblFileSelectd.Text = "No File Selected";
 
             }
-
-        }
-        private void btnOpenFolder_Click(object sender, EventArgs e)
-        {
-            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
-            {
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                {
-
-                    pathOfFolder = folderBrowserDialog.SelectedPath;
-                    txtOutFolder.Text = pathOfFolder;
-                    mergePageOpen = true;
-                    EnableButtonMerge(firstPageOpen, mergePageOpen);
-                }
-            }
-        }
-
-        private void txtOutFolder_TextChanged(object sender, EventArgs e)
-        {
 
         }
         bool HasValidationErrors()
@@ -144,72 +259,41 @@ namespace learnpdf
 
             return hasError;
         }
-        void MergePath()
+        private void btnFirstFile_Click(object sender, EventArgs e)
         {
+            ClearList();
+            firstPageOpen = OpenFile(lblTotalFiles,lblNameFirsFile);
 
-
-            outputFileName = txtOutFile.Text + ".pdf";
-            outputFilePath = Path.Combine(pathOfFolder, outputFileName);
-        }
-
-        void TotalPagesWhenMerge(PdfDocument pages)
-        {
-            totalPageAfterMerge = pages.PageCount;
-            lblTotalPages.Text = totalPageAfterMerge.ToString();
-        }
-        void SavePageToPath(PdfDocument document)
-        {
-
-           
-
-               
-                document.Save(outputFilePath);
-                document.Close();
-          
-        }
-            void AddPages(PdfDocument source, PdfDocument output)
-            {
-                foreach (PdfPage page in source.Pages)
-                {
-                    output.AddPage(page);
-                progressBar1.Value++;
-                    Application.DoEvents();
-                }
-
-
-            }
-        bool CheckIsNameFileExists()
-        {
+            TotalFilesAndPages();
+            EnableButtonMerge(firstPageOpen, mergePageOpen);
             
-            if (File.Exists(outputFilePath))
-                {
-                DialogResult result = MessageBox.Show(
-          "A file with the same name already exists.\n\nDo you want to replace it?",
-          "Confirm File Replace",
-          MessageBoxButtons.YesNo,
-          MessageBoxIcon.Warning,
-          MessageBoxDefaultButton.Button2);
-
-                if (result == DialogResult.Yes)
-                {
-                    File.Delete(outputFilePath);
-
-                }
-                else
-                {
-                    return false;
-                }
+        }
+        void StartMerge()
+        {
+            if (HasValidationErrors())
+            {
+                return;
             }
-                return true;
-           
+            MergePath();
+            if (!IsFilePathExist())
+            {
+
+                return;
+            }
+            MergePdf();
+
+
 
         }
-
 
         void TotalFilesAndPages()
         {
             SelctedItemInListbox();
              totalPages =0;
+            if(lsPath==null || lsPath.Count == 0)
+            {
+                return;
+            }
            int totalFiles = lsPath.Count();
             foreach (string path in lsPath)
             {
@@ -258,26 +342,15 @@ namespace learnpdf
 
             
         }   
-        
-        
-        private void btnMerge_Click(object sender, EventArgs e)
-        {
-            if (HasValidationErrors())
-            {
-                return;
-            }
-            MergePath();
-            MergePdf();
-        }
         void ResetPage()
         {
 
-            lblFileSelectd.Text = "No file selected";
-         
-            lblTotalFiles.Text = lblTotalPages.Text = lblTotalPagesInListbox.Text = "--";
+            ClearList();
+
+
             txtOutFile.Clear();
             txtOutFolder.Clear();
-            listBox1.Items.Clear();
+       
             btnMerge.Enabled = false;
 
           
@@ -285,11 +358,37 @@ namespace learnpdf
             outputFileName = string.Empty;
             outputFilePath = string.Empty;
             firstPageOpen = false;
-          
+            progressBar1.Value = 0;
             mergePageOpen = false;
         
 
 
+        }
+      
+        private void btnOpenFolder_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    pathOfFolder = folderBrowserDialog.SelectedPath;
+                    txtOutFolder.Text = pathOfFolder;
+                    mergePageOpen = true;
+                    EnableButtonMerge(firstPageOpen, mergePageOpen);
+                }
+            }
+        }
+
+        private void txtOutFolder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMerge_Click(object sender, EventArgs e)
+        {
+
+            StartMerge();
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -300,5 +399,31 @@ namespace learnpdf
         {
 
         }
+
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+
+            MoveFileUp();
+
+         }
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+
+
+            MoveFileDown();
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnClearLsit_Click(object sender, EventArgs e)
+        {
+            ClearList();
+        }
     }
-}
+    }
+

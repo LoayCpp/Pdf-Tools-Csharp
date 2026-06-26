@@ -51,7 +51,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnClearLsit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFirstFile
@@ -59,9 +64,9 @@
             this.btnFirstFile.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnFirstFile.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnFirstFile.ForeColor = System.Drawing.Color.White;
-            this.btnFirstFile.Location = new System.Drawing.Point(762, 86);
+            this.btnFirstFile.Location = new System.Drawing.Point(725, 96);
             this.btnFirstFile.Name = "btnFirstFile";
-            this.btnFirstFile.Size = new System.Drawing.Size(143, 44);
+            this.btnFirstFile.Size = new System.Drawing.Size(180, 44);
             this.btnFirstFile.TabIndex = 0;
             this.btnFirstFile.Text = "Browse";
             this.btnFirstFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -74,7 +79,7 @@
             this.lblNameFirsFile.BackColor = System.Drawing.Color.Transparent;
             this.lblNameFirsFile.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameFirsFile.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblNameFirsFile.Location = new System.Drawing.Point(117, 103);
+            this.lblNameFirsFile.Location = new System.Drawing.Point(117, 113);
             this.lblNameFirsFile.Name = "lblNameFirsFile";
             this.lblNameFirsFile.Size = new System.Drawing.Size(161, 19);
             this.lblNameFirsFile.TabIndex = 17;
@@ -85,7 +90,7 @@
             this.lblFileSelectd.AutoSize = true;
             this.lblFileSelectd.BackColor = System.Drawing.Color.Transparent;
             this.lblFileSelectd.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileSelectd.Location = new System.Drawing.Point(123, 73);
+            this.lblFileSelectd.Location = new System.Drawing.Point(123, 83);
             this.lblFileSelectd.Name = "lblFileSelectd";
             this.lblFileSelectd.Size = new System.Drawing.Size(135, 23);
             this.lblFileSelectd.TabIndex = 16;
@@ -96,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 23);
+            this.label1.Location = new System.Drawing.Point(30, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 28);
             this.label1.TabIndex = 15;
@@ -118,7 +123,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(102, 342);
+            this.label10.Location = new System.Drawing.Point(102, 352);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 19);
             this.label10.TabIndex = 21;
@@ -129,7 +134,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(102, 407);
+            this.label11.Location = new System.Drawing.Point(101, 419);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 19);
             this.label11.TabIndex = 22;
@@ -139,7 +144,7 @@
             // 
             this.txtOutFolder.BackColor = System.Drawing.Color.White;
             this.txtOutFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.txtOutFolder.Location = new System.Drawing.Point(207, 336);
+            this.txtOutFolder.Location = new System.Drawing.Point(205, 345);
             this.txtOutFolder.Multiline = true;
             this.txtOutFolder.Name = "txtOutFolder";
             this.txtOutFolder.ReadOnly = true;
@@ -151,7 +156,7 @@
             // 
             this.txtOutFile.BackColor = System.Drawing.Color.White;
             this.txtOutFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.txtOutFile.Location = new System.Drawing.Point(228, 399);
+            this.txtOutFile.Location = new System.Drawing.Point(230, 408);
             this.txtOutFile.Multiline = true;
             this.txtOutFile.Name = "txtOutFile";
             this.txtOutFile.Size = new System.Drawing.Size(587, 38);
@@ -162,9 +167,9 @@
             this.btnOpenFolder.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnOpenFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnOpenFolder.ForeColor = System.Drawing.Color.White;
-            this.btnOpenFolder.Location = new System.Drawing.Point(762, 330);
+            this.btnOpenFolder.Location = new System.Drawing.Point(725, 342);
             this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(143, 44);
+            this.btnOpenFolder.Size = new System.Drawing.Size(180, 44);
             this.btnOpenFolder.TabIndex = 2;
             this.btnOpenFolder.Text = "Browse";
             this.btnOpenFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -177,11 +182,13 @@
             this.btnMerge.Enabled = false;
             this.btnMerge.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnMerge.ForeColor = System.Drawing.Color.White;
+            this.errorProvider1.SetIconAlignment(this.btnMerge, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btnMerge.Location = new System.Drawing.Point(29, 477);
             this.btnMerge.Name = "btnMerge";
             this.btnMerge.Size = new System.Drawing.Size(690, 82);
             this.btnMerge.TabIndex = 3;
             this.btnMerge.Text = "Merge PDF";
+            this.btnMerge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMerge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMerge.UseVisualStyleBackColor = false;
             this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
@@ -278,7 +285,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(25, 640);
+            this.label12.Location = new System.Drawing.Point(31, 652);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(202, 28);
             this.label12.TabIndex = 36;
@@ -293,15 +300,62 @@
             this.listBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(24, 154);
+            this.listBox1.Location = new System.Drawing.Point(38, 158);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(916, 96);
+            this.listBox1.Size = new System.Drawing.Size(452, 96);
             this.listBox1.TabIndex = 37;
+            // 
+            // btnUp
+            // 
+            this.btnUp.Location = new System.Drawing.Point(497, 167);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(77, 34);
+            this.btnUp.TabIndex = 39;
+            this.btnUp.Text = "Up";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Location = new System.Drawing.Point(497, 207);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(77, 34);
+            this.btnDown.TabIndex = 40;
+            this.btnDown.Text = "down";
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnClearLsit
+            // 
+            this.btnClearLsit.BackColor = System.Drawing.Color.White;
+            this.btnClearLsit.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnClearLsit.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnClearLsit.Location = new System.Drawing.Point(725, 181);
+            this.btnClearLsit.Name = "btnClearLsit";
+            this.btnClearLsit.Size = new System.Drawing.Size(180, 44);
+            this.btnClearLsit.TabIndex = 41;
+            this.btnClearLsit.Text = "Clear List";
+            this.btnClearLsit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClearLsit.UseVisualStyleBackColor = false;
+            this.btnClearLsit.Click += new System.EventHandler(this.btnClearLsit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::learnpdf.Properties.Resources.Merge__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(943, 779);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MergePdfControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = global::learnpdf.Properties.Resources.Merge__1_;
+            this.Controls.Add(this.btnClearLsit);
+            this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnUp);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.progressBar1);
@@ -323,10 +377,12 @@
             this.Controls.Add(this.lblFileSelectd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFirstFile);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "MergePdfControl";
-            this.Size = new System.Drawing.Size(1003, 790);
+            this.Size = new System.Drawing.Size(950, 790);
             this.Load += new System.EventHandler(this.MergePdfControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +412,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnClearLsit;
     }
 }

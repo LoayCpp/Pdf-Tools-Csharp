@@ -123,6 +123,26 @@ namespace learnpdf.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_icons__5_ {
+            get {
+                object obj = ResourceManager.GetObject("icon-icons (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_icons__7_ {
+            get {
+                object obj = ResourceManager.GetObject("icon-icons (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LUAI__2_ {
             get {
                 object obj = ResourceManager.GetObject("LUAI (2)", resourceCulture);

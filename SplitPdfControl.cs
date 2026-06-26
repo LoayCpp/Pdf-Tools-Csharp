@@ -23,6 +23,14 @@ namespace learnpdf
             btnSplit.Image = new Bitmap(Properties.Resources.icon_icons, new Size(30, 30));
             btnReset.Image = new Bitmap(Properties.Resources.icon_icons__1_, new Size(30, 30));
             this.DoubleBuffered = true;
+            foreach (Control c in this.Controls.OfType<Control>().ToList())
+            {
+                if (c != pictureBox1)
+                    c.Parent = pictureBox1;
+
+
+
+            }
         }
 
         string pathFilePdf;
@@ -206,6 +214,11 @@ namespace learnpdf
         }
 
         private void txtOutFolder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

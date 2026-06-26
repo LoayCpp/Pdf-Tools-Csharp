@@ -172,7 +172,7 @@
             this.lblTotlalPage.AutoSize = true;
             this.lblTotlalPage.BackColor = System.Drawing.Color.Transparent;
             this.lblTotlalPage.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotlalPage.Location = new System.Drawing.Point(175, 378);
+            this.lblTotlalPage.Location = new System.Drawing.Point(175, 384);
             this.lblTotlalPage.Name = "lblTotlalPage";
             this.lblTotlalPage.Size = new System.Drawing.Size(24, 23);
             this.lblTotlalPage.TabIndex = 8;
@@ -184,7 +184,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(80, 379);
+            this.label8.Location = new System.Drawing.Point(80, 384);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 19);
             this.label8.TabIndex = 9;
@@ -293,6 +293,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(958, 792);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label7
             // 
