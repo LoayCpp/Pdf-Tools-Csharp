@@ -38,7 +38,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.PanalForm = new System.Windows.Forms.Panel();
             this.btnMerge = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -51,7 +53,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(82, 159);
+            this.label4.Location = new System.Drawing.Point(95, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 41);
             this.label4.TabIndex = 18;
@@ -146,10 +148,18 @@
             this.btnMerge.UseVisualStyleBackColor = false;
             this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::learnpdf.Properties.Resources.MainForm1;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1276, 813);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = global::learnpdf.Properties.Resources.MainForm1;
             this.ClientSize = new System.Drawing.Size(1282, 819);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.button3);
@@ -158,12 +168,14 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PanalForm);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pdf Tools";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +190,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel PanalForm;
         private System.Windows.Forms.Button btnMerge;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

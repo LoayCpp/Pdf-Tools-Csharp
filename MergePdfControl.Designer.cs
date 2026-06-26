@@ -30,12 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnFirstFile = new System.Windows.Forms.Button();
-            this.btnSecondFile = new System.Windows.Forms.Button();
             this.lblNameFirsFile = new System.Windows.Forms.Label();
             this.lblFileSelectd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblNameSecondFile = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,6 +50,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label12 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,20 +67,6 @@
             this.btnFirstFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFirstFile.UseVisualStyleBackColor = false;
             this.btnFirstFile.Click += new System.EventHandler(this.btnFirstFile_Click);
-            // 
-            // btnSecondFile
-            // 
-            this.btnSecondFile.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSecondFile.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.btnSecondFile.ForeColor = System.Drawing.Color.White;
-            this.btnSecondFile.Location = new System.Drawing.Point(762, 176);
-            this.btnSecondFile.Name = "btnSecondFile";
-            this.btnSecondFile.Size = new System.Drawing.Size(143, 44);
-            this.btnSecondFile.TabIndex = 1;
-            this.btnSecondFile.Text = "Browse";
-            this.btnSecondFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSecondFile.UseVisualStyleBackColor = false;
-            this.btnSecondFile.Click += new System.EventHandler(this.btnSecondFile_Click);
             // 
             // lblNameFirsFile
             // 
@@ -117,29 +101,6 @@
             this.label1.Size = new System.Drawing.Size(161, 28);
             this.label1.TabIndex = 15;
             this.label1.Text = "1. Select PDF File";
-            // 
-            // lblNameSecondFile
-            // 
-            this.lblNameSecondFile.AutoSize = true;
-            this.lblNameSecondFile.BackColor = System.Drawing.Color.Transparent;
-            this.lblNameSecondFile.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameSecondFile.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblNameSecondFile.Location = new System.Drawing.Point(117, 194);
-            this.lblNameSecondFile.Name = "lblNameSecondFile";
-            this.lblNameSecondFile.Size = new System.Drawing.Size(161, 19);
-            this.lblNameSecondFile.TabIndex = 19;
-            this.lblNameSecondFile.Text = "Choose the first PDF file";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(123, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 23);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Second PDF";
             // 
             // label2
             // 
@@ -327,10 +288,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
+            this.listBox1.Location = new System.Drawing.Point(24, 154);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(916, 96);
+            this.listBox1.TabIndex = 37;
+            // 
             // MergePdfControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::learnpdf.Properties.Resources.Merge__1_;
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblTotalPages);
@@ -347,12 +319,9 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblNameSecondFile);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblNameFirsFile);
             this.Controls.Add(this.lblFileSelectd);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSecondFile);
             this.Controls.Add(this.btnFirstFile);
             this.Name = "MergePdfControl";
             this.Size = new System.Drawing.Size(1003, 790);
@@ -366,12 +335,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnFirstFile;
-        private System.Windows.Forms.Button btnSecondFile;
         private System.Windows.Forms.Label lblNameFirsFile;
         private System.Windows.Forms.Label lblFileSelectd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblNameSecondFile;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -389,5 +355,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

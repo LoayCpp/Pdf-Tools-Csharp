@@ -35,6 +35,15 @@ namespace learnpdf
             PanalForm.Controls.Add(merge);
             merge.Hide();
             currentControl = splitControl;
+            foreach (Control c in this.Controls.OfType<Control>().ToList())
+            {
+                if (c != pictureBox1)
+                {
+                    c.Parent = pictureBox1;
+                }
+
+
+            }
 
         }
       

@@ -16,8 +16,8 @@ namespace learnpdf
 {
     public partial class MergePdfControl : UserControl
     {
-        string pathFirstFilePdf;
-        string pathSecondFilePdf;
+       
+      
         int totalPage;
   
         bool firstPageOpen;
@@ -26,41 +26,47 @@ namespace learnpdf
         string pathOfFolder;
         string outputFileName;
         string outputFilePath;
+        List<string> lsPath;
         public MergePdfControl()
         {
             InitializeComponent();
-            btnFirstFile.Image=btnOpenFolder.Image=btnSecondFile.Image = new Bitmap(Properties.Resources.icon_icons__2_, new Size(20, 20));
+         
             btnReset.Image = new Bitmap(Properties.Resources.icon_icons__1_, new Size(30, 30));
         }
-
-        bool OpenFile(Label lblTotlalPage, Label lblNameFile,ref string   pathFilePdf)
+        void AddFilesToListbox(List<string> path)
         {
-            int totalPage;
+
+            string namePath;
+            foreach(string s in path)
+            {
+                namePath = Path.GetFileNameWithoutExtension(s);
+                listBox1.Items.Add(namePath);
+
+            }
+
+        }
+        bool OpenFile(Label lblTotlalPage, Label lblNameFile)
+        {
+            
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+                openFileDialog.Multiselect = true;
                 openFileDialog.Title = "Pdf File";
                 openFileDialog.Filter = "PDF Files|*.pdf";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    pathFilePdf = openFileDialog.FileName;
-                    using (PdfDocument pdfDocument = PdfReader.Open(pathFilePdf, PdfDocumentOpenMode.Import))
-                    {
-                        totalPage = pdfDocument.PageCount;
-                        lblTotlalPage.Text = totalPage.ToString();
-                        lblNameFile.Text = Path.GetFileName(pathFilePdf);
-                        return true;
-
-                    }
+                    lsPath = openFileDialog.FileNames.ToList();
+                    AddFilesToListbox(lsPath);
+                    return true;
                 }
-
 
             }
             return false;
         }
-        void EnableButtonMerge(bool firstPageOpen,bool secondPageOpen,bool mergePageOpen)
+        void EnableButtonMerge(bool firstPageOpen,bool mergePageOpen)
         {
-            if(firstPageOpen && secondPageOpen && this.mergePageOpen)
+            if(firstPageOpen && this.mergePageOpen)
             {
 
                 btnMerge.Enabled = true;
@@ -70,15 +76,11 @@ namespace learnpdf
         }
         private void btnFirstFile_Click(object sender, EventArgs e)
         {
-            firstPageOpen = OpenFile(lblTotalFirstPage,lblNameFirsFile,ref pathFirstFilePdf);
-            EnableButtonMerge(firstPageOpen, secondPageOpen, mergePageOpen);
+            firstPageOpen = OpenFile(lblTotalFirstPage,lblNameFirsFile);
+            EnableButtonMerge(firstPageOpen, mergePageOpen);
         }
 
-        private void btnSecondFile_Click(object sender, EventArgs e)
-        {
-            secondPageOpen = OpenFile(lblTotalSecondPage, lblNameSecondFile,ref pathSecondFilePdf);
-            EnableButtonMerge(firstPageOpen, secondPageOpen, mergePageOpen);
-        }
+      
 
         private void btnOpenFolder_Click(object sender, EventArgs e)
         {
@@ -90,7 +92,7 @@ namespace learnpdf
                     pathOfFolder = folderBrowserDialog.SelectedPath;
                     txtOutFolder.Text = pathOfFolder;
                     mergePageOpen = true;
-                    EnableButtonMerge(firstPageOpen, secondPageOpen, mergePageOpen);
+                    EnableButtonMerge(firstPageOpen, mergePageOpen);
                 }
             }
         }
@@ -149,7 +151,6 @@ namespace learnpdf
                 {
                     output.AddPage(page);
 
-                    progressBar1.Value++;
                     Application.DoEvents();
                 }
 
@@ -191,25 +192,26 @@ namespace learnpdf
 
         void MergePdf()
         {
-            using (PdfDocument pdfDocument = new PdfDocument())
-            using (PdfDocument firstPdf = PdfReader.Open(pathFirstFilePdf, PdfDocumentOpenMode.Import))
-            using (PdfDocument secondPdf = PdfReader.Open(pathSecondFilePdf, PdfDocumentOpenMode.Import))
-            {
-                if (!CheckIsNameFileExists())
+            
+            using (PdfDocument pdfDocument = new PdfDocument()) { 
+
+             foreach(string path in lsPath)
                 {
 
-                    return;
-                }
-                TotalPgseWhenMerge(firstPdf,secondPdf);
-                progressBar1.Value = 0;
-                progressBar1.Maximum = totalPage;
+                    using (PdfDocument firstPdf = PdfReader.Open(path, PdfDocumentOpenMode.Import))
+
                 AddPages(firstPdf, pdfDocument);
-                AddPages(secondPdf, pdfDocument);
+             
+
+            }
 
                 SavePageToPath(pdfDocument);
                 MessageBox.Show("PDF files merged successfully.", "SuccessFully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
+                }
+           
+
+            
         }   
         
         
@@ -226,14 +228,14 @@ namespace learnpdf
         {
 
             lblFileSelectd.Text = "No file selected";
-            lblNameFirsFile.Text = lblNameSecondFile.Text = "Choose the first PDF file";
+         
             lblTotalFirstPage.Text = lblTotalPages.Text = lblTotalSecondPage.Text = "--";
             txtOutFile.Clear();
             txtOutFolder.Clear();
 
             btnMerge.Enabled = false;
 
-            pathFirstFilePdf = pathSecondFilePdf = string.Empty;
+          
             pathOfFolder = string.Empty;
             outputFileName = string.Empty;
             outputFilePath = string.Empty;
