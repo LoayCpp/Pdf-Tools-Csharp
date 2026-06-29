@@ -126,9 +126,9 @@
             // 
             this.PanalForm.BackColor = System.Drawing.Color.Transparent;
             this.PanalForm.Cursor = System.Windows.Forms.Cursors.Default;
-            this.PanalForm.Location = new System.Drawing.Point(341, 12);
+            this.PanalForm.Location = new System.Drawing.Point(330, 5);
             this.PanalForm.Name = "PanalForm";
-            this.PanalForm.Size = new System.Drawing.Size(929, 795);
+            this.PanalForm.Size = new System.Drawing.Size(961, 813);
             this.PanalForm.TabIndex = 23;
             // 
             // btnMerge
@@ -169,6 +169,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PanalForm);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
