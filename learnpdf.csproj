@@ -208,6 +208,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PDF_24287.ico" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\Up.png" />
+    <None Include="Resources\icon-icons %287%29.png" />
+    <None Include="Resources\icon-icons %285%29.png" />
     <None Include="Resources\Merge %281%29.png" />
     <None Include="Resources\Merge.png" />
     <None Include="Resources\MainForm1.png" />
