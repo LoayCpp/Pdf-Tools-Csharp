@@ -37,6 +37,7 @@ namespace learnpdf
             btnFirstFile.Image = new Bitmap(Properties.Resources.icon_icons__2_, new Size(30, 30));
            btnOpenFolder.Image= new Bitmap(Properties.Resources.icon_icons__2_, new Size(30, 30));
             btnMerge.Image = new Bitmap(Properties.Resources.icon_icons__7_, new Size(30, 30));
+            this.DoubleBuffered = true;
 
         }
         void MoveFileDown()
@@ -103,14 +104,14 @@ namespace learnpdf
 
 
         }
-        void AddFilesToListbox(List<string> path)
+        void AddFilesToListbox(string [] fileNames)
         {
-
-            string namePath;
-            foreach(string s in path)
+           
+          
+            foreach (string s in fileNames)
             {
-                namePath = Path.GetFileNameWithoutExtension(s);
-                listBox1.Items.Add(namePath);
+              
+                listBox1.Items.Add(Path.GetFileNameWithoutExtension(s));
 
             }
 
@@ -126,8 +127,9 @@ namespace learnpdf
                 openFileDialog.Filter = "PDF Files|*.pdf";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    lsPath = openFileDialog.FileNames.ToList();
-                    AddFilesToListbox(lsPath);
+                    lsPath.AddRange(openFileDialog.FileNames);
+
+                    AddFilesToListbox(openFileDialog.FileNames);
                     return true;
                 }
 
@@ -261,7 +263,7 @@ namespace learnpdf
         }
         private void btnFirstFile_Click(object sender, EventArgs e)
         {
-            ClearList();
+            
             firstPageOpen = OpenFile(lblTotalFiles,lblNameFirsFile);
 
             TotalFilesAndPages();
@@ -401,20 +403,8 @@ namespace learnpdf
         }
 
 
-        private void btnUp_Click(object sender, EventArgs e)
-        {
-
-            MoveFileUp();
-
-         }
-        private void btnDown_Click(object sender, EventArgs e)
-        {
-
-
-            MoveFileDown();
-
-
-        }
+       
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -423,6 +413,16 @@ namespace learnpdf
         private void btnClearLsit_Click(object sender, EventArgs e)
         {
             ClearList();
+        }
+
+        private void picUp_Click(object sender, EventArgs e)
+        {
+            MoveFileUp();
+        }
+
+        private void picDown_Click(object sender, EventArgs e)
+        {
+            MoveFileDown();
         }
     }
     }

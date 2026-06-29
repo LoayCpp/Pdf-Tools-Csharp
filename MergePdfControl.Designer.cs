@@ -51,11 +51,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
             this.btnClearLsit = new System.Windows.Forms.Button();
+            this.picDown = new System.Windows.Forms.PictureBox();
+            this.picUp = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,26 +307,6 @@
             this.listBox1.Size = new System.Drawing.Size(452, 96);
             this.listBox1.TabIndex = 37;
             // 
-            // btnUp
-            // 
-            this.btnUp.Location = new System.Drawing.Point(497, 167);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(77, 34);
-            this.btnUp.TabIndex = 39;
-            this.btnUp.Text = "Up";
-            this.btnUp.UseVisualStyleBackColor = true;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
-            // btnDown
-            // 
-            this.btnDown.Location = new System.Drawing.Point(497, 207);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(77, 34);
-            this.btnDown.TabIndex = 40;
-            this.btnDown.Text = "down";
-            this.btnDown.UseVisualStyleBackColor = true;
-            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
-            // 
             // btnClearLsit
             // 
             this.btnClearLsit.BackColor = System.Drawing.Color.White;
@@ -338,6 +320,31 @@
             this.btnClearLsit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClearLsit.UseVisualStyleBackColor = false;
             this.btnClearLsit.Click += new System.EventHandler(this.btnClearLsit_Click);
+            // 
+            // picDown
+            // 
+            this.picDown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picDown.Image = global::learnpdf.Properties.Resources.down;
+            this.picDown.Location = new System.Drawing.Point(503, 204);
+            this.picDown.Name = "picDown";
+            this.picDown.Size = new System.Drawing.Size(33, 40);
+            this.picDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDown.TabIndex = 43;
+            this.picDown.TabStop = false;
+            this.picDown.Click += new System.EventHandler(this.picDown_Click);
+            // 
+            // picUp
+            // 
+            this.picUp.BackColor = System.Drawing.Color.Transparent;
+            this.picUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picUp.Image = global::learnpdf.Properties.Resources.Up;
+            this.picUp.Location = new System.Drawing.Point(503, 158);
+            this.picUp.Name = "picUp";
+            this.picUp.Size = new System.Drawing.Size(33, 40);
+            this.picUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUp.TabIndex = 42;
+            this.picUp.TabStop = false;
+            this.picUp.Click += new System.EventHandler(this.picUp_Click);
             // 
             // pictureBox1
             // 
@@ -353,9 +360,9 @@
             // MergePdfControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.picDown);
+            this.Controls.Add(this.picUp);
             this.Controls.Add(this.btnClearLsit);
-            this.Controls.Add(this.btnDown);
-            this.Controls.Add(this.btnUp);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.progressBar1);
@@ -382,6 +389,8 @@
             this.Size = new System.Drawing.Size(950, 790);
             this.Load += new System.EventHandler(this.MergePdfControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -413,8 +422,8 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnDown;
-        private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnClearLsit;
+        private System.Windows.Forms.PictureBox picDown;
+        private System.Windows.Forms.PictureBox picUp;
     }
 }
