@@ -105,6 +105,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeletePages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeletePages.Designer.cs">
+      <DependentUpon>DeletePages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="SplitPdfControl.Designer.cs">
       <DependentUpon>SplitPdfControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DeletePages.resx">
+      <DependentUpon>DeletePages.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PDF_24287.ico" />
+    <None Include="Resources\icon-icons %288%29.png" />
     <None Include="Resources\down.png" />
     <None Include="Resources\Up.png" />
     <None Include="Resources\icon-icons %287%29.png" />
