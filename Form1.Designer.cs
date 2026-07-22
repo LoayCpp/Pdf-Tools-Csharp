@@ -39,6 +39,7 @@
             this.PanalForm = new System.Windows.Forms.Panel();
             this.btnMerge = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDeletePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +97,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(62, 410);
+            this.button2.Location = new System.Drawing.Point(62, 469);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(187, 44);
             this.button2.TabIndex = 2;
@@ -113,7 +114,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(62, 469);
+            this.button3.Location = new System.Drawing.Point(62, 528);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(187, 44);
             this.button3.TabIndex = 3;
@@ -130,6 +131,7 @@
             this.PanalForm.Name = "PanalForm";
             this.PanalForm.Size = new System.Drawing.Size(961, 813);
             this.PanalForm.TabIndex = 23;
+            this.PanalForm.Paint += new System.Windows.Forms.PaintEventHandler(this.PanalForm_Paint);
             // 
             // btnMerge
             // 
@@ -157,10 +159,28 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDeletePage
+            // 
+            this.btnDeletePage.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnDeletePage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeletePage.FlatAppearance.BorderSize = 0;
+            this.btnDeletePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletePage.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnDeletePage.ForeColor = System.Drawing.Color.White;
+            this.btnDeletePage.Location = new System.Drawing.Point(62, 410);
+            this.btnDeletePage.Name = "btnDeletePage";
+            this.btnDeletePage.Size = new System.Drawing.Size(187, 44);
+            this.btnDeletePage.TabIndex = 25;
+            this.btnDeletePage.Text = "Delete Page";
+            this.btnDeletePage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeletePage.UseVisualStyleBackColor = false;
+            this.btnDeletePage.Click += new System.EventHandler(this.btnDeletePage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1282, 819);
+            this.Controls.Add(this.btnDeletePage);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -193,6 +213,7 @@
         private System.Windows.Forms.Panel PanalForm;
         private System.Windows.Forms.Button btnMerge;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDeletePage;
     }
 }
 

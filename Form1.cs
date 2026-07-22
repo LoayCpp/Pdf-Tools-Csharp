@@ -17,6 +17,7 @@ namespace learnpdf
         private SplitPdfControl splitControl;
         private MergePdfControl merge;
         private UserControl currentControl;
+        private DeletePages deletePages;
         public Form1()
         {
             InitializeComponent();
@@ -29,12 +30,19 @@ namespace learnpdf
 
             splitControl = new SplitPdfControl();
             merge = new MergePdfControl();
+            deletePages = new DeletePages();
+
             merge.Dock = DockStyle.Fill;
             splitControl.Dock = DockStyle.Fill;
+            deletePages.Dock = DockStyle.Fill;
 
             PanalForm.Controls.Add(splitControl);
             PanalForm.Controls.Add(merge);
+            PanalForm.Controls.Add(deletePages);
+
             merge.Hide();
+            deletePages.Hide();
+
             currentControl = splitControl;
             foreach (Control c in this.Controls.OfType<Control>().ToList())
             {
@@ -98,6 +106,14 @@ namespace learnpdf
             ShowAndHideUserControl(merge);
         }
 
-        
+        private void PanalForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDeletePage_Click(object sender, EventArgs e)
+        {
+            ShowAndHideUserControl(deletePages);
+        }
     }
 }
