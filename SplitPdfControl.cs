@@ -100,11 +100,17 @@ namespace learnpdf
 
             if (File.Exists(outputFilePath))
             {
-
+                
                 File.Delete(outputFilePath);
             }
 
             document.Save(outputFilePath);
+            MessageBox.Show(
+              "Cut successfully.",
+               "Success",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Information
+                        );
             document.Close();
 
 
@@ -204,8 +210,25 @@ namespace learnpdf
 
                 return;
             }
+            try
+            {
+
             MergePath();
             CopyPdf();
+
+
+            }
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(
+       $"An error occurred:\n{ex.Message}",
+       "Error",
+       MessageBoxButtons.OK,
+       MessageBoxIcon.Error
+   );
+
+            }
 
         }
         private void ResetPage(object sender, EventArgs e)
@@ -221,6 +244,16 @@ namespace learnpdf
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtOutFile_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtOutFile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+         
         }
     }
 }

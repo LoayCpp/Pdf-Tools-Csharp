@@ -100,10 +100,11 @@
             this.txtOutFile.BackColor = System.Drawing.Color.White;
             this.txtOutFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtOutFile.Location = new System.Drawing.Point(223, 597);
-            this.txtOutFile.Multiline = true;
             this.txtOutFile.Name = "txtOutFile";
-            this.txtOutFile.Size = new System.Drawing.Size(587, 38);
+            this.txtOutFile.Size = new System.Drawing.Size(587, 30);
             this.txtOutFile.TabIndex = 14;
+            this.txtOutFile.TextChanged += new System.EventHandler(this.txtOutFile_TextChanged);
+            this.txtOutFile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutFile_KeyPress);
             // 
             // txtOutFolder
             // 
